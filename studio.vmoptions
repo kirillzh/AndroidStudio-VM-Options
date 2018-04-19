@@ -2,8 +2,6 @@
 # JVM options for smooth Android Studio experience (works also for any IntelliJ IDEA based IDE).
 # Works on Mac OS, Linux, Windows. Targets JRE 8.
 #
-#
-#
 # Installation instructions
 #
 # 1. Read this page https://developer.android.com/studio/intro/studio-config.html
@@ -35,10 +33,19 @@
 -server
 
 # Sets the initial size of the heap, default value is 256m
--Xms1G
+-Xms2G
 
 # Max size of the memory allocation pool, default value is 1280m
--Xmx2G
+-Xmx4G
 
-# Sets the size of the allocated class metadata space that will trigger a GC the first time it is exceeded, default max value is 350m 
+# Sets the size of the allocated class metadata space that will trigger a GC the first time it is exceeded, default max value is 350m
 -XX:MetaspaceSize=512m
+
+# Disables the use of compressed pointers, by default JVM compresses pointers to use less memory, but slows application down.
+#-XX:-UseCompressedOops
+#-XX:+UseCompressedOops
+
+# TODO: add description
+-XX:MaxPermSize=8G
+-XX:ReservedCodeCacheSize=2G
+-Dcaches.indexerThreadsCount=12
